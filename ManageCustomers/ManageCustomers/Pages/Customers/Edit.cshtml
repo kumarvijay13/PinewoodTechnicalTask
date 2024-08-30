@@ -1,0 +1,59 @@
+﻿@page
+@using ManageCustomers.Domain.Models;
+@model ManageCustomers.Pages.Customers.EditModel
+@{
+
+}
+<form method="post">
+    <input hidden asp-for="@Model.UpdateCustomer.ExistingId" />
+    <div class="mb-3">
+        <label>First Name</label>
+        <input asp-for="@Model.Customer.FirstName" class="form-control" placeholder="First Name" aria-label="First Name" aria-describedby="basic-addon1" />
+    </div>
+
+    <div class="mb-3">
+        <label>Last Name</label>
+        <input asp-for="@Model.Customer.LastName" class="form-control" />
+    </div>
+
+    <div class="mb-3">
+        <label>Date Of Birth</label>
+        <input type="date" asp-for="@Model.Customer.DOB" class="form-control"  />
+    </div>
+
+    <div class="mb-3">
+        <label>Address</label>
+        <input asp-for="@Model.UpdateCustomer.Address" class="form-control" />
+        <span asp-validation-for="UpdateCustomer.Address" class="text-danger"></span>
+    </div>
+
+    <div class="mb-3">
+        <label>Mobile</label>
+        <input asp-for="@Model.UpdateCustomer.Mobile" class="form-control" />
+        <span asp-validation-for="UpdateCustomer.Mobile" class="text-danger"></span>
+    </div>
+
+    <div class="mb-3">
+        <label>Gender</label>
+        <div>
+            @foreach (var gender in Model.Genders)
+            {
+                <input type="radio" asp-for="@Model.UpdateCustomer.Gender" value="@gender" /> @gender
+
+                <br />
+            }
+        </div>
+        <span asp-validation-for="UpdateCustomer.Gender" class="text-danger"></span>
+    </div>
+
+    <div>
+        <button type="submit" class="btn btn-success">Edit</button>
+        <a asp-page="View" class="btn btn-danger">Cancel</a>
+    </div>
+</form>
+
+@if (Model.ErrorUpdatingCustomer)
+{
+    <span>Error updating customer</span>
+}
+

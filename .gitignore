@@ -1,0 +1,12 @@
+﻿/ManageCustomers/ManageCustomers/obj
+/ManageCustomers/ManageCustomers/bin/Debug/net7.0
+/ManageCustomers/.vs
+
+/ManageCustomers/ManageCustomers.Api/obj
+/ManageCustomers/ManageCustomers.Api/bin/Debug/net7.0
+/ManageCustomers.Api/.vs
+
+
+/ManageCustomers/ManageCustomers.Domain/obj
+/ManageCustomers/ManageCustomers.Domain/bin/Debug/net7.0
+/ManageCustomers.Domain/.vs

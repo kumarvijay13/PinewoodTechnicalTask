@@ -1,0 +1,53 @@
+﻿@page
+@model ManageCustomers.Pages.Customers.ViewModel
+@{
+}
+
+<div>
+    <nav class="navbar navbar-light bg-light">
+        <span class="navbar-text" style="margin-left:500px;">
+            List Of Customers
+        </span>
+    </nav>
+</div>
+<br />
+
+@if ((Model.Customers is not null && Model.Customers.Any()))
+{
+    <div>
+        <table class="table table-hover">
+            <thead>
+                <tr>
+                    <th scope="col">First Name</th>
+                    <th scope="col">Last Name</th>
+                    <th scope="col">Date Of Birth</th>
+                    <th scope="col">Gender</th>
+                    <th scope="col">Address</th>
+                    <th scope="col">Mobile</th>
+                    <th scope="col">Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var customer in Model.Customers)
+                {
+                    <tr>
+                        <td>@customer.FirstName</td>
+                        <td>@customer.LastName</td>
+                        <td>@customer.DOB.ToShortDateString()</td>
+                        <td>@customer.Gender</td>
+                        <td>@customer.Address</td>
+                        <td>@customer.Mobile</td>
+                        <td>
+                            <a asp-page="Edit" asp-route-customerId="@customer.Id">Edit</a>&nbsp;
+                            <a asp-page="Delete" asp-route-customerId="@customer.Id">Delete</a>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+}
+else
+{
+    <div class="text-black">No Customers to display.</div>
+}
